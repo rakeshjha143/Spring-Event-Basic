@@ -6,9 +6,9 @@ import com.basic.event.basic.repository.Repository;
 
 public abstract class BaseService<TE, T> extends  ReadOnlyBaseService<TE, T> {
 
-	 private Repository<TE, T> _repository;
+	 public Repository<TE, T> _repository;
 
-	  BaseService(Repository<TE, T> repository) {
+	  protected BaseService(Repository<TE, T> repository) {
 	    super(repository);
 	    _repository = repository;
 	  }

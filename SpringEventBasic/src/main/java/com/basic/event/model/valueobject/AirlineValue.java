@@ -1,49 +1,28 @@
-package com.basic.event.model.entity;
+package com.basic.event.model.valueobject;
 
-import java.util.Date;
+/**
+ * @author JHA
+ *
+ */
+public class AirlineValue {
 
-import javax.persistence.Entity;
-
-import com.basic.event.model.basic.BaseEntity;
-
-@Entity
-public class Airline extends BaseEntity<String>{
-
-	private String airline_name;
+    private String airline_name;
 	
 	private String airline_code;
 	
 	private String digigt_code;
 
 	/**
-	 * @param id
-	 * @param name
-	 * @param createdBy
-	 * @param creationDate
-	 * @param lastModifiedBy
-	 * @param lastModifiedDate
 	 * @param airline_name
 	 * @param airline_code
 	 * @param digigt_code
 	 */
-	public Airline(String id, String name, String createdBy, Date creationDate, String lastModifiedBy,
-			Date lastModifiedDate, String airline_name, String airline_code, String digigt_code) {
-		super(id, name, createdBy, creationDate, lastModifiedBy, lastModifiedDate);
+	public AirlineValue(String airline_name, String airline_code, String digigt_code) {
+		super();
 		this.airline_name = airline_name;
 		this.airline_code = airline_code;
 		this.digigt_code = digigt_code;
 	}
-	
-   private Airline(String id, String name) {
-	   super();
-   }
-
-
-
-	public static Airline getDummyAirline() {
-		    return new Airline(null, null);
-		  }
-
 
 	/**
 	 * @return the airline_name
@@ -86,6 +65,7 @@ public class Airline extends BaseEntity<String>{
 	public void setDigigt_code(String digigt_code) {
 		this.digigt_code = digigt_code;
 	}
+	
 	
 	
 }

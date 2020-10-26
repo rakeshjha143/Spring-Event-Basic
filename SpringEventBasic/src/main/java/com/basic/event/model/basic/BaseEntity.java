@@ -48,6 +48,13 @@ public abstract class BaseEntity<T> extends Entity<T>{
 		this.lastModifiedBy = lastModifiedBy;
 		this.lastModifiedDate = lastModifiedDate;
 	}
+
+	/**
+	 * 
+	 */
+	public BaseEntity() {
+		super();
+	}
     
     
 }
