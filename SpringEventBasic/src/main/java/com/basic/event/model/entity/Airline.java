@@ -1,13 +1,23 @@
 package com.basic.event.model.entity;
 
-import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.basic.event.model.basic.BaseEntity;
+import com.basic.event.model.basic.AbstractEntity;
+
 
 @Entity
-public class Airline extends BaseEntity<String>{
+@Table(name = "air_line")
+public class Airline extends AbstractEntity{
+	
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String airline_name;
 	
@@ -16,34 +26,18 @@ public class Airline extends BaseEntity<String>{
 	private String digigt_code;
 
 	/**
-	 * @param id
-	 * @param name
-	 * @param createdBy
-	 * @param creationDate
-	 * @param lastModifiedBy
-	 * @param lastModifiedDate
-	 * @param airline_name
-	 * @param airline_code
-	 * @param digigt_code
+	 * @return the id
 	 */
-	public Airline(String id, String name, String createdBy, Date creationDate, String lastModifiedBy,
-			Date lastModifiedDate, String airline_name, String airline_code, String digigt_code) {
-		super(id, name, createdBy, creationDate, lastModifiedBy, lastModifiedDate);
-		this.airline_name = airline_name;
-		this.airline_code = airline_code;
-		this.digigt_code = digigt_code;
+	public Long getId() {
+		return id;
 	}
-	
-   private Airline(String id, String name) {
-	   super();
-   }
 
-
-
-	public static Airline getDummyAirline() {
-		    return new Airline(null, null);
-		  }
-
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return the airline_name
@@ -86,6 +80,16 @@ public class Airline extends BaseEntity<String>{
 	public void setDigigt_code(String digigt_code) {
 		this.digigt_code = digigt_code;
 	}
+
+
+
+
+
 	
+  
+
+
+
+
 	
 }

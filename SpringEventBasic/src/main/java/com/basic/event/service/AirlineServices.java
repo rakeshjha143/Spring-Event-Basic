@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.basic.event.model.service;
+package com.basic.event.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,12 +28,12 @@ public interface AirlineServices {
 	  /**
 	   * @param id
 	   */
-	  public void delete(String id) throws Exception;
+	  public void delete(Long id) throws Exception;
 
 	  /**
 	   * @param id
 	   */
-	  public Entity findById(String id) throws Exception;
+	  public Entity findById(Long id) throws Exception;
 
 	  /**
 	   * @param name

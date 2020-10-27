@@ -6,6 +6,8 @@ package com.basic.event.model.valueobject;
  */
 public class AirlineValue {
 
+
+	
     private String airline_name;
 	
 	private String airline_code;

@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.basic.event.common.DuplicateAirlineException;
 import com.basic.event.common.InvalidAirlineException;
+import com.basic.event.convert.ObjectTOEntity;
 import com.basic.event.model.entity.Airline;
-import com.basic.event.model.service.AirlineServices;
 import com.basic.event.model.valueobject.AirlineValue;
+import com.basic.event.service.AirlineServices;
 
 /**
  * @author Jha
@@ -32,14 +33,19 @@ public class AirlineController {
 	/**
 	 *
 	 */
+	@Autowired
 	protected AirlineServices airlineService;
+	
+	@Autowired
+	private ObjectTOEntity otb;
 
 	/**
 	 * @param userService
 	 */
-	@Autowired
-	public AirlineController(AirlineServices airlineService) {
+	
+	public AirlineController(AirlineServices airlineService,ObjectTOEntity otb) {
 		this.airlineService = airlineService;
+		this.otb=otb;
 	}
  
 	
@@ -56,7 +62,7 @@ public class AirlineController {
 	        .format("airline-service add() invoked: %s for %s", airlineService.getClass().getName(),
 	        		airlineValue.getAirline_name()));
 	    System.out.println(airlineValue);
-	    Airline airline = Airline.getDummyAirline();
+	    Airline airline = otb.convertTO(airlineValue);
 	    BeanUtils.copyProperties(airlineValue, airline);
 	    try {
 	    	airlineService.add(airline);
